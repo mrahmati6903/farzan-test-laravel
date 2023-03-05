@@ -9,6 +9,12 @@
 
     <hr/>
 
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ route('dashboard_motorbike_create') }}" class="btn btn-info">create new motorbike</a>
+        </div>
+    </div>
+
     <div class="row my-2 py-4">
         <div class="col-md-12">
             <table class="table">
@@ -31,7 +37,7 @@
                         <td>{{ $motorbike->weight }}</td>
                         <td>{{ $motorbike->price }}</td>
                         <td>
-                            <img src="{{ $motorbike->image }}" alt="...">
+                            <img src="{{ asset('storage/uploads/' . $motorbike->image) }}" alt="..." height="70px" width="70px">
                         </td>
                     </tr>
                 @endforeach

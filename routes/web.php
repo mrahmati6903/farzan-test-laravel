@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MotorbikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +26,7 @@ Route::get ('/logout'      , [AuthController::class, 'logout'      ])->name('log
 
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
-    Route::get('/'    , [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/motorbike/create', [MotorbikeController::class, 'create'])->name('dashboard_motorbike_create');
+    Route::post('/motorbike/store', [MotorbikeController::class, 'store'])->name('dashboard_motorbike_store');
 });
