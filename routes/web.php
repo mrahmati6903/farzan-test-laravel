@@ -23,4 +23,7 @@ Route::get ('/login'       , [AuthController::class, 'login'       ])->name('log
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get ('/logout'      , [AuthController::class, 'logout'      ])->name('logout');
 
-Route::get('/dashboard'    , [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+
+Route::prefix('dashboard')->middleware(['auth'])->group(function () {
+    Route::get('/'    , [DashboardController::class, 'index'])->middleware(['auth'])->name('dashboard');
+});
