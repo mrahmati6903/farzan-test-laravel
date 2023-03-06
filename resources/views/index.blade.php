@@ -24,7 +24,7 @@
                         </li>
                     </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Show</a>
+                        <a href="{{ route('motorbike', ['motorbike' => $motorbike->id]) }}" target="_blank" class="card-link">Show</a>
                     </div>
                 </div>
             </div>

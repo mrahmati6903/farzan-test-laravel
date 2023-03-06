@@ -21,6 +21,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get ('/login'       , [AuthController::class, 'login'       ])->name('login');
 Route::post('/authenticate', [AuthController::class, 'authenticate'])->name('authenticate');
 Route::get ('/logout'      , [AuthController::class, 'logout'      ])->name('logout');
+Route::get ('/motorbike/{motorbike}'   , [HomeController::class, 'motorbike'])->name('motorbike');
 
 Route::prefix('dashboard')->middleware(['auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');

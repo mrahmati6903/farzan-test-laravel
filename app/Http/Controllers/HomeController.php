@@ -12,4 +12,9 @@ class HomeController extends Controller
         $motorbikes = Motorbike::paginate(9);
         return view('index', ['motorbikes' => $motorbikes]);
     }
+
+    public function motorbike(Motorbike $motorbike)
+    {
+        return view('motorbike', ['motorbike' => $motorbike]);
+    }
 }
