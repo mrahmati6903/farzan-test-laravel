@@ -4,13 +4,21 @@
     <div class="row my-2 py-2">
         <div class="com-md-12">
             <form class="form-inline">
-                <label for="color">Color</label>
+                <label for="color">Color: </label>
                 <input type="text" name="filter[color]" class="form-control mb-2 mr-sm-2" id="color" value="{{ request('filter', ['color' => ''])['color'] }}">
 
-                <button type="submit" class="btn btn-primary mb-2 float-right">Apply</button>
+                <label for="sort">Sort By: </label>
+                <select id="sort" name="sort" class="form-control mb-2 mr-sm-2">
+                    <option value=""></option>
+                    <option value="price" {{ request('sort', '') == 'price' ? 'selected' : '' }}>price - DESC</option>
+                    <option value="-price" {{ request('sort', '') == '-price' ? 'selected' : '' }}>price - ASC </option>
+                </select>
+                <button type="submit" class="btn btn-primary mb-2 float-right">Filter</button>
             </form>
         </div>
     </div>
+
+    <hr>
 
     <div class="row my-2 py-4">
         @foreach($motorbikes as $motorbike)

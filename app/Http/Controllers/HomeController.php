@@ -12,6 +12,7 @@ class HomeController extends Controller
     {
         $motorbikes = QueryBuilder::for(Motorbike::class)
             ->allowedFilters(['color'])
+            ->allowedSorts(['price', '-price'])
             ->paginate(9);
 //        $motorbikes = Motorbike::paginate(9);
         return view('index', ['motorbikes' => $motorbikes]);
